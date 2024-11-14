@@ -10,17 +10,19 @@ export default async function Todos() {
     const session = await getServerSession(authOptions);
     await connectDB();
     const userId = session.user.id;
-    const todos = await todoModal.find({ user:userId });
+    const todos = await todoModal.find({ user: userId });
 
     return (
-        <div className="min-h-screen p-6 md:p-12 bg-gray-100">
+        <div className="min-h-screen bg-gray-100">
             <UserInfo />
             <h1 className="text-4xl text-center font-bold mb-8 text-indigo-600">Todo List</h1>
             <TodoForm />
-            <div className="mt-8 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {todos.map((data) => (
-                    <ListItem key={data._id} data={data} />
-                ))} 
+            <div className="mt-2 flex justify-center">
+                <div className="grid p-4 gap-6 w-full max-w-md">
+                    {todos.map((data) => (
+                        <ListItem key={data._id} data={data} />
+                    ))}
+                </div>
             </div>
         </div>
     );
