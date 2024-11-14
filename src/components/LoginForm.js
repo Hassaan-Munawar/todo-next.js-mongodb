@@ -23,10 +23,8 @@ export default function LoginForm() {
     setPassword(e.target.value)
     setError("")
   }
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       setLoading(true)
       const res = await signIn("credentials", {
