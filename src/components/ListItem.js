@@ -51,7 +51,7 @@ export default function ListItem({ data }) {
         <Toaster position="top-right" />
         {isEdit ? (
           <input
-            className="flex-grow border-2 border-blue-200 rounded-lg p-1 text-gray-900 focus:outline-none focus:border-purple-400"
+            className="flex-grow border-2 w-full border-blue-200 rounded-lg p-1 text-gray-900 focus:outline-none focus:border-purple-400"
             value={task}
             onChange={(e) => setTask(e.target.value)}
           />
