@@ -1,21 +1,11 @@
 import { connectDB } from "@/app/lib/dbConnect";
 import todoModal from "@/app/lib/moodals/todoModal";
-import { getServerSession } from 'next-auth';
-import { authOptions } from "../auth/[...nextauth]/route";
 
 
 export async function GET(request) {
     try {
-        const session = await getServerSession(authOptions);
         await connectDB();
-        const userId = session?.user?.id;
-        let todos;
-        if(userId){
-         todos = await todoModal.find({ user:userId });
-        }
-        else{
-            todos = await todoModal.find();
-        }
+        const  todos = await todoModal.find()
         return Response.json({
             data: todos,
             message: 'Todos Fetched Successfully'
