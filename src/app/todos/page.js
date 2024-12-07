@@ -1,16 +1,16 @@
 import ListItem from "@/components/ListItem";
 import TodoForm from "@/components/TodoForm";
 import UserInfo from "@/components/UserInfo";
-import { getServerSession } from 'next-auth';
-import { authOptions } from "../api/auth/[...nextauth]/route";
+// import { getServerSession } from 'next-auth';
+// import { authOptions } from "../api/auth/[...nextauth]/route";
 import { connectDB } from "../lib/dbConnect";
-import todoModal from "../lib/moodals/todoModal";
+// import todoModal from "../lib/moodals/todoModal";
 
 export default async function Todos() {
-    const session = await getServerSession(authOptions);
+    // const session = await getServerSession(authOptions);
     await connectDB();
-    const userId = session.user.id;
-    const todos = await todoModal.find({ user: userId });
+    // const userId = session.user.id;
+    // const todos = await todoModal.find({ user: userId });
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -19,9 +19,10 @@ export default async function Todos() {
             <TodoForm />
             <div className="mt-2 flex justify-center">
                 <div className="grid p-4 gap-6 w-full max-w-md">
-                    {todos.map((data) => (
+                    {/* {todos.map((data) => (
                         <ListItem key={data._id} data={data} />
-                    ))}
+                    ))} */}
+                    hi
                 </div>
             </div>
         </div>
