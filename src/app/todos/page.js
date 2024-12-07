@@ -4,13 +4,13 @@ import UserInfo from "@/components/UserInfo";
 import { getServerSession } from 'next-auth';
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { connectDB } from "../lib/dbConnect";
-import todoModal from "../lib/moodals/todoModal";
+import TodoModal from "../lib/moodals/todoModal";
 
 export default async function Todos() {
     const session = await getServerSession(authOptions);
     await connectDB();
     const userId = session.user.id;
-    const todos = await todoModal.find({ user: userId });
+    const todos = await TodoModal.find({ user: userId });
 
     return (
         <div className="min-h-screen bg-gray-100">
