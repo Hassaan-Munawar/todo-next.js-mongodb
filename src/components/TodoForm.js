@@ -1,6 +1,6 @@
 "use client";
 
-import { addTodo } from "@/actions/todos";
+// import { addTodo } from "@/actions/todos";
 import { useRef, useState } from "react";
 import { PlusIcon } from "@heroicons/react/solid";
 import toast, { Toaster } from "react-hot-toast";
@@ -20,7 +20,7 @@ export default function TodoForm() {
             setLoading(false)
             return;
         }
-        await addTodo(formData,session?.user?.id);
+        // await addTodo(formData,session?.user?.id);
         formRef.current.reset();
         setLoading(false)
     };

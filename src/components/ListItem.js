@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteTodo, updateTodo } from "@/actions/todos";
+// import { deleteTodo, updateTodo } from "@/actions/todos";
 import { useState } from "react";
 import { CheckIcon, XIcon, PencilIcon, TrashIcon } from "@heroicons/react/solid";
 import toast, { Toaster } from "react-hot-toast";
@@ -16,7 +16,7 @@ export default function ListItem({ data }) {
     const onComplete = async () => {
         setLoadingdone(true)
         const updatedTodo = { ...data, isCompleted: !data.isCompleted };
-        await updateTodo(updatedTodo);
+        // await updateTodo(updatedTodo);
         setLoadingdone(false)
     };
 
@@ -24,7 +24,7 @@ export default function ListItem({ data }) {
         if (isEdit && task) {
             setLoadingedit(true)
             const updatedTodo = { ...data, todo: task };
-            await updateTodo(updatedTodo);
+            // await updateTodo(updatedTodo);
             setIsEdit(false);
             setLoadingedit(false)
         }
@@ -38,7 +38,7 @@ export default function ListItem({ data }) {
 
     const onDelete = async () => {
         setLoadingdelete(true)
-        await deleteTodo({ id: data._id });
+        // await deleteTodo({ id: data._id });
         setLoadingdelete(false)
     };
 
