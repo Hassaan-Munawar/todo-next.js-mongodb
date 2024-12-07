@@ -6,7 +6,6 @@ export async function addTodo(formData,id) {
     try {
         await fetch(`${process.env.BASE_URL}/api/todos`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ todo,user:id })
         });
         revalidatePath('/todos');
@@ -20,7 +19,6 @@ export async function updateTodo(obj) {
     try {
         await fetch(`${process.env.BASE_URL}/api/todos`, {
             method: "PUT",
-            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(obj)
         });
 
@@ -34,7 +32,6 @@ export async function deleteTodo(obj) {
     try {
         await fetch(`${process.env.BASE_URL}/api/todos`, {
             method: "DELETE",
-            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(obj)
         });
 
